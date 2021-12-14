@@ -1,0 +1,13 @@
+{ 
+  
+"/Catalog": {
+  "target": "http://localhost:4040",
+  "secure": false,
+  "logLevel": "debug"
+},
+    "/api/*": {
+      "target": "http://localhost:43005",
+      "secure": false,
+      "logLevel": "debug"
+    }
+  }
