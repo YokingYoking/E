@@ -1,7 +1,7 @@
 { 
   
 "/Catalog": {
-  "target": "http://localhost:4040",
+  "target": "http://localhost:44130",
   "secure": false,
   "logLevel": "debug"
 },
