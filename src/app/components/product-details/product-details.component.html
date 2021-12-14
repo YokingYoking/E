@@ -7,7 +7,7 @@
     <h5 class="class-title display-7">{{ product.name }}</h5>
     <p class="card-text">{{ product.description }}</p>
     <p class="card-text">
-      <button type="button" data-id="{{ product.id }}" class="add-to-cart btn btn-primary" tabindex="0">
+      <button type="button" data-id="{{ product.id }}" class="add-to-cart btn btn-primary" tabindex="0" (click)="add2Cart(product)">
         Add to Cart
       </button>
     </p>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartItem } from 'src/app/models/cart.model';
 import { CartService } from 'src/app/services/cart.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-cart-view',
@@ -13,9 +14,11 @@ export class CartViewComponent implements OnInit {
 
   constructor(
     private cartAPI: CartService,
+    private title: Title,
   ) { }
 
   ngOnInit(): void {
+    this.title.setTitle('Cart');
     this.cartAPI.getCart().subscribe({
       next: (items) => {
         this.items = items
