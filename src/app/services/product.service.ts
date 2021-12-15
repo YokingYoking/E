@@ -13,7 +13,7 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   getCatalog(): Observable<Category[]> {
-    const url = '/Catalog';
+    const url = '/api/catalog';
     if (InMemoryCache.hasCache(url)) return InMemoryCache.getCache<Category[]>(url).observable;
     return (new InMemoryCache(url, new Observable<Category[]>(subscriber => {
       this.http.get<Category[]>(url).subscribe(categories => {
