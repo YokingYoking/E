@@ -34,4 +34,12 @@ export class CheckoutViewComponent implements OnInit {
     history.go(-1);
   }
 
+  go2Catalog() {
+    this.router.navigate(['/catalog']);
+  }
+
+  goHome() {
+    this.router.navigate(['/']);
+  }
+
 }

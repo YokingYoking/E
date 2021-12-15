@@ -1,7 +1,8 @@
-import { Component, OnInit,Input, inject, Inject } from '@angular/core';
+import { Component, OnInit,Input, Output, EventEmitter } from '@angular/core';
 import { CartItem } from 'src/app/models/cart.model';
 import { CartService } from 'src/app/services/cart.service';
 import { Title } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-cart-table',
@@ -11,6 +12,7 @@ import { Title } from '@angular/platform-browser';
 export class CartTableComponent implements OnInit {
 
   @Input() updatable: boolean = false;
+  @Output() onCartUpdate = new EventEmitter<CartItem[]>();
   items: CartItem[] = [];
   total: number = 0;
 
@@ -20,6 +22,7 @@ export class CartTableComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.onCartUpdate.emit(this.items); // items: CartItem[]
     this.title.setTitle('Cart');
     this.cartAPI.getCart().subscribe({
       next: (items) => {

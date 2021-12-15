@@ -1,4 +1,9 @@
 <div id="cart" class="container-lg container-fluid">
     <h1 class="display-6"><a (click)="goBack()" class="back-btn fw-lighter text-dark text-decoration-none"><i class="bi bi-arrow-left-circle"></i></a> Cart</h1>
-    <app-cart-table [updatable]="true"></app-cart-table>
+    <app-cart-table [updatable]="true" (onCartUpdate)="cartUpdate($event)"></app-cart-table>
+    <div class="row align-items-start">
+      <div class="col text-center">
+        <button class="btn btn-success btn-lg" (click)="go2Checkout()">Checkout</button><!-- goto: /checkout -->
+      </div>
+    </div>
   </div>
