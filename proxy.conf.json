@@ -6,7 +6,7 @@
   "logLevel": "debug"
 },
     "/api/*": {
-      "target": "http://localhost:43005",
+      "target": "http://localhost:33031",
       "secure": false,
       "logLevel": "debug"
     }
