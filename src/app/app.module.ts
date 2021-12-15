@@ -1,8 +1,8 @@
-import { NgModule             } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule, Title } from '@angular/platform-browser';
-import { HttpClientModule     } from '@angular/common/http';
-import { RouterModule         } from '@angular/router';
-import { FormsModule          } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent            } from './app.component';
 import { NavbarComponent         } from './components/navbar/navbar.component';
@@ -11,17 +11,25 @@ import { CategoryCardComponent   } from './components/category-card/category-car
 import { CategoryViewComponent   } from './components/category-view/category-view.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { CartViewComponent       } from './components/cart-view/cart-view.component';
+import { ShipToViewComponent     } from './components/ship-to-view/ship-to-view.component';
+import { CheckoutViewComponent   } from './components/checkout-view/checkout-view.component';
+import { FinishViewComponent     } from './components/finish-view/finish-view.component';
+import { CartTableComponent      } from './components/cart-table/cart-table.component';
 
 @NgModule({
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule, // template-driven forms
+    FormsModule,            // template-driven forms
+    ReactiveFormsModule,    // model-driven (reactive) forms
     RouterModule.forRoot([
       { path: 'catalog',          component: CatalogViewComponent },
       { path: 'category/:catId',  component: CategoryViewComponent },
       { path: 'products/:prodId', component: CategoryViewComponent },
       { path: 'cart',             component: CartViewComponent },
+      { path: 'shipTo',           component: ShipToViewComponent },
+      { path: 'checkout',         component: CheckoutViewComponent },
+      { path: 'finish',           component: FinishViewComponent },
       { path: '',   pathMatch: 'full', redirectTo: '/catalog' },
       { path: '**', pathMatch: 'full', redirectTo: '/catalog' },
     ])
@@ -37,7 +45,11 @@ import { CartViewComponent       } from './components/cart-view/cart-view.compon
     CategoryCardComponent,
     CategoryViewComponent,
     ProductDetailsComponent,
-    CartViewComponent
+    CartViewComponent,
+    ShipToViewComponent,
+    CheckoutViewComponent,
+    FinishViewComponent,
+    CartTableComponent
   ]
 })
 export class AppModule { }

@@ -47,6 +47,6 @@ export class CartViewComponent implements OnInit {
   }
 
   goBack() {
-    
+    history.go(-1);
   }
 }
