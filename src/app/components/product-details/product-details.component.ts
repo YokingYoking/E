@@ -25,7 +25,7 @@ export class ProductDetailsComponent implements OnInit {
   add2Cart(product: Product) {
     this.cartAPI.addToCart(product).subscribe({
       next: () =>{
-        console.log('add success')
+        alert('add to cart successfully')
       },
       error: () => {
 

@@ -27,12 +27,12 @@ export class ShipToViewComponent implements OnInit {
   CanadianProvincesAndTerritories = ShippingConstants.CanadianProvincesAndTerritories;
   USStatesAndTerritories = ShippingConstants.USStatesAndTerritories;
   DeliveryMethods = ShippingConstants.DeliveryMethods;
+  formSubmitted = false;
 
   constructor(
     private fb: FormBuilder,
     private shipping: ShippingService,
     private title: Title,
-    private formSubmitted: Boolean,
   ) { }
 
   ngOnInit(): void {
