@@ -36,6 +36,7 @@ export class ShipToViewComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    console.log(this.PostalCodeRegEx)
     this.title.setTitle('Ship To');
     if (this.shipping.shippingAddress) {
       this.shippingAddress.setValue(this.shipping.shippingAddress);
@@ -77,7 +78,9 @@ export class ShipToViewComponent implements OnInit {
   }
 
   validatePostalOrZipCode(fc: FormControl) {
-    return (this.PostalCodeRegEx.test(fc.value) || this.ZipCodeRegEx.test(fc.value)) ? null : {
+    let PostalCodeRegEx = /^[ABCEGHJKLMNPRSTVXY][0-9][ABCEGHJKLMNPRSTVWXYZ] ?[0-9][ABCEGHJKLMNPRSTVWXYZ][0-9]$/i;
+    let ZipCodeRegEx    = /^[0-9]{5}(?:[-\s][0-9]{4})?$/;
+    return (PostalCodeRegEx.test(fc.value) || ZipCodeRegEx.test(fc.value)) ? null : {
       validInput: {
         valid: false
       }
